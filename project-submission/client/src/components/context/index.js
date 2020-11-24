@@ -124,8 +124,6 @@ export const Provider = (props) => {
             // fetch courses API after new course added
             fetchAPI();
 
-            // return empty array;
-            return [];
         } catch(error) {
             // return error arrays if status is 400
             if(error.response.status === 400) {

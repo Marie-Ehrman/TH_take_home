@@ -56,9 +56,8 @@ const UserSignUp = (props) => {
                                     let validationErrors = [];
 
                                     errors.map( error => {
-                                        if( !validationMessages.find( validationMessage => validationMessage === error ) ) {
                                             validationErrors.push(error);
-                                        }
+                                        
                                     });
                                     setValidationMessages(validationErrors);
                                 } else {

@@ -46,13 +46,12 @@ const CreateCourse = (props) => {
                             .then( errors => {
                                     //if array of errors are returned, set validationErrors array of validation errors
                                     if(errors) {
+                                        console.log(errors)
                                         // create variable to build array of errors to pass to validationMessages
                                         let apiValidationErrors = [];
 
                                         errors.map( error => {
-                                            if( !validationErrors.find( validationError => validationError == error ) ) {
                                                 apiValidationErrors.push(error);
-                                            }
                                         });
                                         setValidationErrors(apiValidationErrors);
                                     } else {
