@@ -5,7 +5,7 @@ import { Consumer } from './context';
 const UpdateCourse = (props) => {
     // set states with React hooks
     const [ updatedCourse, setUpdatedCourse ] = useState();
-    const [ errorMessage, setErrorMessage ] = useState();
+    const [ validationErrors, setValidationErrors ] = useState([]);
 
     // Cancel button returns to Course Details 
     const handleCancel = (event) => {
@@ -41,23 +41,22 @@ const UpdateCourse = (props) => {
                
                     if(authenticatedUser) {
                         if(!updatedCourse) {
-                            setErrorMessage('No changes has been made. Course was not updated');
+                            setValidationErrors('No changes has been made. Course was not updated');
                         } else {
                             //  cation updateCourse function from context and pass course Id, updated course and user authentication
                             action.updateCourse(courseId, updatedCourse, authenticatedUser)
                             .then( errors => {
                                     //if array of errors are returned, set validationErrors array of validation errors
-                                    if(errors.length > 0) {
+                                    if(errors) {
                                         // create variable to build array of errors to pass to validationMessages
                                         let apiValidationErrors = [];
 
                                         errors.map( error => {
-                                            if( !errorMessage.find( errorMessage => errorMessage == error ) ) {
-                                                console.log(errorMessage);
+                                            if( !validationErrors.find( validationError => validationError == error ) ) {
                                                 apiValidationErrors.push(error);
                                             }
                                         });
-                                        setErrorMessage(apiValidationErrors);
+                                        setValidationErrors(apiValidationErrors);
                                     } else {
                                         props.history.push(`/courses/${courseId}`);
                                     }
@@ -83,12 +82,12 @@ const UpdateCourse = (props) => {
                                                         <h1>Update Course</h1>
 
                                                         {/* display if there is an error message */}
-                                                        { errorMessage && 
+                                                        { validationErrors.length > 0 && 
                                                             <div>
                                                                 <h2 className="validation--errors--label">Validation errors</h2>
                                                                 <div className='validation-errors'>
                                                                     <ul>
-                                                                    { errorMessage.map( (errorMessage, i) => (
+                                                                    { validationErrors.map( (errorMessage, i) => (
                                                                         <li key={i}>{ errorMessage }</li>
                                                                     ) ) }                                                                    </ul>
                                                                 </div>
