@@ -50,8 +50,9 @@ const UpdateCourse = (props) => {
                                     if(errors) {
                                         // create variable to build array of errors to pass to validationMessages
                                         let apiValidationErrors = [];
-
                                         errors.map( error => {
+
+
                                             if( !validationErrors.find( validationError => validationError == error ) ) {
                                                 apiValidationErrors.push(error);
                                             }
