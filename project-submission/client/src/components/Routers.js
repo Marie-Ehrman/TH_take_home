@@ -23,8 +23,8 @@ const Routers = () => {
         <Switch>
             <Route exact path='/' render={ () => <Courses /> } />
             <PrivateRoute exact path='/courses/create' component={ CreateCourse } /> 
-            <Route exact path='/courses/:id' render={ (routeProps) => <CourseDetail { ...routeProps } /> } /> 
             <PrivateRoute exact path='/courses/:id/update' component={ UpdateCourse } />
+            <Route exact path='/courses/:id' render={ (routeProps) => <CourseDetail { ...routeProps } /> } /> 
             <Route exact path='/signin' render={ (routeProps) => <UserSignIn { ...routeProps } /> } />
             <Route eact path='/signup' render={ (routeProps) => <UserSignUp { ...routeProps } /> } />
             <Route exact path='/signout' render={ () => <UserSignOut /> } />

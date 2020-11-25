@@ -151,8 +151,6 @@ export const Provider = (props) => {
         } catch(error) {
             console.error('An error occured while updating the course: ', error);
             if(error.response.status === 400) {
-                console.log("COURSE WAS NOT UPDATED")
-                console.log(error.response.data.errors)
                 return error.response.data.errors;
             } else {
                 setErrors([ ...errors, error]);
