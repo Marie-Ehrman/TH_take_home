@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { Consumer } from '../components/context';
 
 function UserSignIn(props) {
-    const [ user, setUser ] = useState({ emailAddress: 'joe@smith.com', password: 'joepassword' });
+    const [ user, setUser ] = useState({ emailAddress: '', password: '' });
     const [ error, setError ] = useState();
     // set from variable to redirect to location from previous route or root URL
     const { from } = props.location.state || { from: { pathname: '/' } }
