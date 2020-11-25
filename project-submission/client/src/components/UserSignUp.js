@@ -55,12 +55,14 @@ const UserSignUp = (props) => {
                                     // create variable to build array of errors to pass to validationMessages
                                     let validationErrors = [];
 
+                                    // eslint-disable-next-line
                                     errors.map( error => {
                                             validationErrors.push(error);
                                         
                                     });
                                     setValidationMessages(validationErrors);
                                 } else {
+                                    // eslint-disable-next-line
                                     {/* sign in after creating an account and redirect to home page */}
                                     action.signIn({ 
                                         emailAddress: user.emailAddress, 

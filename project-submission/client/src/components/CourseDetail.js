@@ -13,6 +13,7 @@ const CourseDetail = (props) => {
                 const courseId = props.match.params.id;
 
                 // use find() method to find courses from context using courseId
+                // eslint-disable-next-line
                 const course = courses.find( course => course.id == courseId );
 
                 // function to handle delete;
@@ -45,7 +46,8 @@ const CourseDetail = (props) => {
                                                     <div className='bounds'>
                                                         <div className='grid-100'>
                                                             {/* display Update and Delete button only if user owns course  */}
-                                                            { user.id == course.user.id && 
+                                                            { // eslint-disable-next-line
+                                                                user.id == course.user.id && 
                                                                 <span>
                                                                     <Link className='button' to={ `/courses/${ props.match.params.id }/update` }>Update Course</Link>
                                                                     <button className='button' onClick={ handleDelete } >Delete Course</button>

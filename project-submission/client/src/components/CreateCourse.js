@@ -46,10 +46,10 @@ const CreateCourse = (props) => {
                             .then( errors => {
                                     //if array of errors are returned, set validationErrors array of validation errors
                                     if(errors) {
-                                        console.log(errors)
                                         // create variable to build array of errors to pass to validationMessages
                                         let apiValidationErrors = [];
-
+                                        
+                                        // eslint-disable-next-line
                                         errors.map( error => {
                                                 apiValidationErrors.push(error);
                                         });

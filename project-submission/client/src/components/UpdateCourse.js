@@ -19,6 +19,7 @@ const UpdateCourse = (props) => {
             { ({ action, authenticatedUser, courses, errors, loading, user }) => {
                 // find current course with course id in URL
                 const courseId = props.match.params.id;
+                // eslint-disable-next-line
                 let currentCourse = courses.find( course => course.id == courseId );
 
                 // update updatedCourse state when values on form changes         
@@ -50,6 +51,7 @@ const UpdateCourse = (props) => {
                                     if(errors) {
                                         // create variable to build array of errors to pass to validationMessages
                                         let apiValidationErrors = [];
+                                        // eslint-disable-next-line
                                         errors.map( error => {
                                             apiValidationErrors.push(error);
                                         });
@@ -74,7 +76,9 @@ const UpdateCourse = (props) => {
                                     {/* render course update form */}
                                     { currentCourse ? (
                                             <div>
-                                                { user.id == currentCourse.user.id ? (
+                                            
+                                                { // eslint-disable-next-line
+                                                    user.id == currentCourse.user.id ? (
                                                     <div>
                                                         <h1>Update Course</h1>
 

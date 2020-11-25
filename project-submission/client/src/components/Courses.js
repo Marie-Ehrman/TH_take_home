@@ -12,6 +12,7 @@ function Courses() {
 
     useEffect( () => {
         fetchCourses();
+        // eslint-disable-next-line
     }, [loading]); 
 
     // function to fetch API 
@@ -41,7 +42,7 @@ function Courses() {
                     - map over courses and create list of courses 
             */}
             <Consumer>
-                { ({}) => {
+                { () => {
                     return(
                         <div>
                             {/* redirect to error page if there is an error from the Context API */}

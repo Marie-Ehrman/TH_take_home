@@ -20,6 +20,7 @@ export const Provider = (props) => {
     // useEffect function to execute fechAPI function when the component is mounted
     useEffect( () => {
         fetchAPI();
+        // eslint-disable-next-line
     }, [loading]); 
 
     // function to fetch API 
